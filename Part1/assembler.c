@@ -289,7 +289,7 @@ int map(AssemblyCode* code, int address,int lines) {
         snprintf(machineCode, 33, "0000000%s%s%s%s", opcode, regA, regB,offset);
     }else if (strcmp(code[address].opcode, "jalr") == 0) {
         strcpy(opcode, "101");
-        snprintf(machineCode, 33, "0000000%s%s%s0000000000000", opcode, regA, regB);
+        snprintf(machineCode, 33, "0000000%s%s%s0000000000000000", opcode, regA, regB);
     }else if (strcmp(code[address].opcode, "halt") == 0) {
         strcpy(opcode, "110");
         snprintf(machineCode, 33, "0000000%s0000000000000000000000", opcode);
