@@ -265,7 +265,7 @@ int map(AssemblyCode* code, int address,int lines) {
             }
             intToBinaryString(code[labelAddress].address, offset, 16);
         }
-        printf("[opcode]%s [regA]%s [regB]%s [offset]%s ",opcode,regA,regB,offset);
+        snprintf(machineCode, 33, "0000000%s%s%s%s", opcode, regA, regB, offset);
     }else if (strcmp(code[address].opcode, "beq") == 0) {
         strcpy(opcode, "100");
         if(isNumber(code[address].arg2)){
