@@ -1,4 +1,3 @@
-
      lw  0   2   minu     ; Load minuend into reg 2
      lw  0   3   subt  ; Load subtrahend into reg 3
 loop beq 3   0   done    ; If subtrahend == 0, exit loop
@@ -10,19 +9,3 @@ done sw  0   2   result  ; Store result in reg 2
 minu .fill 32766         ; minuend value
 subt .fill 10383      ; subtrahend value
 result .fill 0              ; Initialize result to 0
-
-
-
-#
-1.lw 0 2 minuend: โหลดค่า minuend (32766) ลงในเรจิสเตอร์ที่ 2.
-2.lw 0 3 subtrahend: โหลดค่า subtrahend (10383) ลงในเรจิสเตอร์ที่ 3.
-
-หลังจากนั้นมีลูป loop ที่ทำงานเพื่อลบ subtrahend จาก minuend จนกว่า subtrahend จะเป็น 0:
-1.beq 3 0 done: ถ้าค่าในเรจิสเตอร์ที่ 3 (subtrahend) เป็น 0 แสดงว่าการลบเสร็จสิ้น ให้กระโดดไปที่ชื่อ done เพื่อจบโปรแกรม.
-2.sub 2 2 1: ลบ 1 ออกจากเรจิสเตอร์ที่ 2 (minuend).
-3.sub 3 3 1: ลบ 1 ออกจากเรจิสเตอร์ที่ 3 (subtrahend).
-4.beq 0 0 loop: กระโดดไปที่ loop เพื่อทำงานในรอบถัดไปของการลบ.
-
-เมื่อลูป loop ทำงานเสร็จสิ้น (เมื่อ subtrahend เป็น 0) โปรแกรมจะกระโดดไปที่ done:
-1.sw 0 2 result: บันทึกค่าที่อยู่ในเรจิสเตอร์ที่ 2 (ผลลัพธ์) ไว้ในที่อยู่ result.
-2.halt: จบการทำงานของโปรแกรม.
