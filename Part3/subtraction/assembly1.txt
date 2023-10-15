@@ -1,19 +1,15 @@
-  lw  0   2   minuend     ; Load minuend into reg 2
-    lw  0   3   subtrahend  ; Load subtrahend into reg 3
-    
-    loop:
-        beq 3   0   done    ; If subtrahend == 0, exit loop
-        sub 2   2   1       ; Subtract 1 from minuend
-        sub 3   3   1       ; Subtract 1 from subtrahend
-        beq 0   0   loop    ; Repeat loop
-    
-    done:
-        sw  0   2   result  ; Store result in reg 2
-        halt
 
-minuend: .fill 32766         ; minuend value
-subtrahend: .fill 10383      ; subtrahend value
-result: .fill 0              ; Initialize result to 0
+     lw  0   2   minu     ; Load minuend into reg 2
+     lw  0   3   subt  ; Load subtrahend into reg 3
+loop beq 3   0   done    ; If subtrahend == 0, exit loop
+     nand 2   2   1       ; Subtract 1 from minuend
+     nand 3   3   1       ; Subtract 1 from subtrahend
+     beq 0   0   loop    ; Repeat loop
+done sw  0   2   result  ; Store result in reg 2
+     halt
+minu .fill 32766         ; minuend value
+subt .fill 10383      ; subtrahend value
+result .fill 0              ; Initialize result to 0
 
 
 
